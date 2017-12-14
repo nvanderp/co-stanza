@@ -1,0 +1,9 @@
+State for:
+    quotes
+    currentQuote
+
+Render two components:
+    header: random button, title
+    poem: where the poem is rendered
+        poem has both states
+        

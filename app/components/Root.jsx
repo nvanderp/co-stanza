@@ -19,16 +19,13 @@ export default class Root extends Component {
 
     render() {
         return (
-            <div>
-                <main>
-                    <NavHeader />
-                    <Switch>
-                        <Route exact path="/quotes" component={QuotesList} />
-                        <Redirect to="/quotes" />
-                    </Switch>
-                </main>
-            </div>
-
+            <main>
+                <NavHeader />
+                <Switch>
+                    <Route exact path="/quotes" component={QuotesList} />
+                    <Redirect to="/quotes" />
+                </Switch>
+            </main>
         )
     }
 }

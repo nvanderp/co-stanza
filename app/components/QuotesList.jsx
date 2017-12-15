@@ -5,10 +5,16 @@ function QuotesList(props) {
     const { quotes, poem } = props
 
     return (
-        <div>
-            <h3>Poem</h3>
-                { !poem ? 'Loading poem...' : poem.content }
-            <h3>Available Quotes</h3>
+        <div className='poem-container'>
+            <h3>Poem</h3> {/* Randomly generate the title! */}
+            <div className='poem'>
+                { 
+                    !poem 
+                    ? 'Loading poem...' 
+                    : poem.content 
+                }
+            </div>
+            {/* <h3>Available Quotes</h3>       maybe just admin view?
             {
                 !quotes
                 ? null
@@ -19,7 +25,7 @@ function QuotesList(props) {
                         </div>
                     )
                 })
-            }
+            } */}
         </div>
     )
 }

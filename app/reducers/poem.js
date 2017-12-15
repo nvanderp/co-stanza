@@ -9,7 +9,7 @@ export function poemMade(poem) {
 
 export function fetchPoem() {
     return function thunk(dispatch) {
-        const random = Math.floor(Math.random() * 2)
+        const random = Math.floor(Math.random() * 7) // set num to length of quotes :/
         return axios.get(`/api/quotes/${random}`)
             .then(res => res.data)
             .then(poem => {

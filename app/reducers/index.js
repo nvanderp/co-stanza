@@ -1,9 +1,10 @@
 import { combineReducers } from 'redux'
 
 import quotes from './quotes'
+import poem from './poem'
 
 const rootReducer = combineReducers({
-    quotes
+    quotes, poem
 })
 
 export default rootReducer

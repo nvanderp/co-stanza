@@ -2,15 +2,15 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 function QuotesList(props) {
-    const { quotes } = props
+    const { quotes, poem } = props
 
     return (
         <div>
-            {/* <h3>Single Quote</h3>
-                { !poem ? null : poem } */}
-            <h3>All Quotes</h3>
+            <h3>Poem</h3>
+                { !poem ? 'Loading poem...' : poem.content }
+            <h3>Available Quotes</h3>
             {
-                !quotes 
+                !quotes
                 ? null
                 : quotes.map(quote => {
                     return (
@@ -26,7 +26,8 @@ function QuotesList(props) {
 
 const mapStateToProps = function(state, ownProps) {
     return {
-        quotes: state.quotes
+        quotes: state.quotes,
+        poem: state.poem
     }
 }
 

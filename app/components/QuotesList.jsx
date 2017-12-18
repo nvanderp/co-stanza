@@ -6,15 +6,15 @@ function QuotesList(props) {
 
     return (
         <div className='poem-container'>
-            <h3>Poem</h3> {/* Randomly generate the title! */}
+            {/* <h3>Poem</h3>
             <div className='poem'>
                 { 
                     !poem 
                     ? 'Loading poem...' 
                     : poem.content 
                 }
-            </div>
-            {/* <h3>Available Quotes</h3>       maybe just admin view?
+            </div> */}
+            <h3>Available Quotes</h3>
             {
                 !quotes
                 ? null
@@ -25,7 +25,7 @@ function QuotesList(props) {
                         </div>
                     )
                 })
-            } */}
+            }
         </div>
     )
 }
@@ -33,7 +33,7 @@ function QuotesList(props) {
 const mapStateToProps = function(state, ownProps) {
     return {
         quotes: state.quotes,
-        poem: state.poem
+        // poem: state.poem
     }
 }
 

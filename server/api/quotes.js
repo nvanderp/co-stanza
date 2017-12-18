@@ -10,14 +10,5 @@ router.get('/', (req, res, next) => {
         .catch(next)
 })
 
-router.get('/:id', (req, res, next) => {        
-    Quote.findById(req.params.id)
-        .then(poem => {
-            // here is where the poetry generator happens!
-            res.json(poem)
-        })
-        .catch(next)
-})
-
 module.exports = router;
 

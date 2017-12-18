@@ -6,15 +6,12 @@ import QuotesList from './QuotesList'
 
 import store from '../store'
 import { fetchQuotes } from '../reducers/quotes'
-import { fetchPoem } from '../reducers/poem'
 
 export default class Root extends Component {
 
     componentDidMount() {
         const quotesThunk = fetchQuotes()
         store.dispatch(quotesThunk)
-        const poemThunk = fetchPoem()
-        store.dispatch(poemThunk)
     }
 
     render() {

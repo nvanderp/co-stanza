@@ -1,0 +1,22 @@
+h1 {
+    font-family: 'Abril Fatface', cursive;
+    font-style: italic;
+}
+
+#main {
+    text-align: center;
+    margin: 30px;
+}
+
+.poem {
+    width: 100%;
+    white-space: normal;
+}
+
+.align-right {
+    text-align: right;
+}
+
+.align-left {
+    text-align: left;
+}

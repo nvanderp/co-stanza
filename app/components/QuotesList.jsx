@@ -6,12 +6,32 @@ function QuotesList(props) {
 
     return (
         <div className='poem-container'>
-            <h3>Poem</h3>
             <pre className='poem'>
                 { 
                     !poem 
                     ? 'Loading poem...' 
-                    : poem.content 
+                    : poem.content.map(line => {
+                        if (line.length === 1) {
+                            return (
+                                <div className='align-right'>
+                                    {line}
+                                </div>
+                            )  
+                        }
+                        else if (line.length === 2) {
+                            return (
+                                <div className='align-left'>
+                                    {line}
+                                </div>
+                            )
+                        } else {
+                            return (
+                                <div>
+                                    {line}
+                                </div>
+                            )    
+                        }
+                    })
                 }
             </pre>
             {/* <h3>Available Quotes</h3>
@@ -30,27 +50,32 @@ function QuotesList(props) {
     )
 }
 
-// utility function
+// utility functions
 const pickPoem = (quotes) => {
     let index = Math.floor(Math.random() * quotes.length)
     let quote = quotes[index]
     let newQuote = Object.assign({}, quote)
-    newQuote.content = cummings(quote.content)
+    newQuote.content = poemGenerator(quote.content)
     return newQuote
 }
 
-const cummings = (words = '') => {
-	let resultStr = ''
-	words.split('').forEach(word => {
-		const cummingsSpaces = Math.random() * 300
-		let cummingsSpace = '\t'
-		for (let i = 0; i < cummingsSpaces; i++) {
-			cummingsSpace += '\t'
-		}
-		resultStr += word + cummingsSpace
-	})
-
-	return resultStr
+const poemGenerator = (content) => {
+    let poem = content.split(' ')
+    let newPoem = []
+    let curIndex = 0
+    poem.map(word => {
+        let num = Math.floor(Math.random() * 2)
+        if (!num) {
+            if (typeof(newPoem[curIndex]) === 'undefined') newPoem[curIndex] = []
+            if (newPoem[curIndex].length >= 1) newPoem[curIndex].push(' ' + word)
+            else newPoem[curIndex].push(word)
+        } else {
+            curIndex++
+            newPoem[curIndex] = []
+            newPoem[curIndex].push(word)
+        }
+    })
+    return newPoem
 }
 
 const mapStateToProps = function(state, ownProps) {

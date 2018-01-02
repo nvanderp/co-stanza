@@ -6,6 +6,7 @@ function NavHeader(props) {
     return (
         <nav>
             <h1>Co-Stanza</h1>
+            <Link to='/quotes'><button>Generate Poem</button></Link>
         </nav>
     )
 }

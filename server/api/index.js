@@ -11,4 +11,6 @@ apiRouter.get('/hello', (req, res) => res.send({hello: 'world'}))
 
 apiRouter.use('/quotes', require('./quotes'))
 
+apiRouter.use('/poems', require('./poems'))
+
 module.exports = apiRouter

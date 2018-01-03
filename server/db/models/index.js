@@ -2,7 +2,8 @@
 
 const db = require('../index')
 
-const Quote = require('./Quote');
+const Quote = require('./Quote')
+const Poem = require('./Poem')
 
 // associations
 

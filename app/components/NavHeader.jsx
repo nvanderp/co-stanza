@@ -6,9 +6,14 @@ function NavHeader(props) {
     return (
         <nav>
             <h1>Co-Stanza</h1>
-            <Link to='/quotes'><button className='bttn bttn-gen-poem'>Generate Poem</button></Link>
+            <Link to='/quotes'><button className='bttn'>Generate Poem</button></Link>
+            <Link to='/quotes'><button className='bttn'>Generate Poem</button></Link>
         </nav>
     )
 }
 
-export default connect()(NavHeader)
+const mapDispatchToProps = function(dispatch, ownProps) {
+
+}
+
+export default connect(mapDispatchToProps)(NavHeader)

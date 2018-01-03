@@ -1,11 +1,11 @@
 const db = require('../index')
 const DataTypes = db.Sequelize
 
-const Quote = db.define('quote', {
+const Poem = db.define('poem', {
     content: {
-        type: DataTypes.TEXT(),
+        type: DataTypes.ARRAY(DataTypes.STRING()),
         allowNull: false
     }
 })
 
-module.exports = Quote
+module.exports = Poem

@@ -1,8 +1,8 @@
-'use strict';
+'use strict'
 
-const express = require('express');
-const router = new express.Router();
-const Quote = require('../db/models/Quote');
+const express = require('express')
+const router = new express.Router()
+const Quote = require('../db/models/Quote')
 
 router.get('/', (req, res, next) => {
     Quote.findAll()
@@ -10,5 +10,4 @@ router.get('/', (req, res, next) => {
         .catch(next)
 })
 
-module.exports = router;
-
+module.exports = router

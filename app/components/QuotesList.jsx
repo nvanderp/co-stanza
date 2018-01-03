@@ -78,9 +78,13 @@ const poemGenerator = (content) => {
     return newPoem
 }
 
+// export const handleSave = (evt) => {
+//     console.log(poem)
+// }
+
 const mapStateToProps = function(state, ownProps) {
     let poem
-    if (state.quotes.length) { poem = pickPoem(state.quotes) }
+    if (state.quotes.length) poem = pickPoem(state.quotes)
     return {
         quotes: state.quotes,
         poem

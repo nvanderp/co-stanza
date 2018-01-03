@@ -1,6 +1,5 @@
 h1 {
     align-content: center;
-    font-family: 'Abril Fatface', cursive;
     font-size: 64px;
     font-style: italic;
     background-image: url('sein-oval.gif');
@@ -13,12 +12,27 @@ h1 {
 
 #main {
     text-align: center;
-    margin: 30px;
+    font-family: 'Abril Fatface', cursive;
+}
+
+.bttn {
+    color: red;
+    background-color: #fbd71f;
+    padding: 15px 32px;
+    font-size: 16px;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-style: italic;
+    font-weight: bold;
+    text-shadow: .5px .5px black;
+    border-color: black;
+    border-width: .5px 2px 3px 1px;
 }
 
 .poem {
-    width: 100%;
+    width: 50%;
     white-space: normal;
+    margin: 30px auto;
 }
 
 .align-right {

@@ -1,11 +1,16 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 function NewPoem(props) {
     const { quotes, poem } = props
 
     return (
         <div className='poem-container'>
+            <div className='navBar'>
+                <Link to='/quotes'><button className='bttn'>Generate Poem</button></Link>
+                <button onClick={evt => handleSave(poem, evt)} className='bttn'>Save Poem</button>
+            </div>
             <pre className='poem'>
                 { 
                     !poem 
@@ -66,7 +71,11 @@ const poemGenerator = (content) => {
     return newPoem
 }
 
-const mapStateToProps = function(state, ownProps) {
+const handleSave = (poem, evt) => {
+    console.log(poem)
+}
+
+const mapStateToProps = (state, ownProps) => {
     let poem
     if (state.quotes.length) poem = pickPoem(state.quotes)
     return {

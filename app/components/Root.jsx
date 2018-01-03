@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom'
 
-import NavHeader from './NavHeader'
+import Header from './Header'
 import NewPoem from './NewPoem'
 
 import store from '../store'
@@ -17,7 +17,7 @@ export default class Root extends Component {
     render() {
         return (
             <main>
-                <NavHeader />
+                <Header />
                 <Switch>
                     <Route exact path="/" component={NewPoem} />
                     <Redirect to="/" />

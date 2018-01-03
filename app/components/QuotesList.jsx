@@ -11,22 +11,22 @@ function QuotesList(props) {
                     !poem 
                     ? 'Loading poem...' 
                     : poem.content.map(line => {
-                        if (line.length === 1) {
+                        if (line.length === 1 || line.length === 4) {
                             return (
-                                <div className='align-right'>
+                                <div className='align-left'>
                                     {line}
                                 </div>
                             )  
                         }
-                        else if (line.length === 2) {
+                        else if (line.length === 3 || line.length === 5) {
                             return (
-                                <div className='align-left'>
+                                <div>
                                     {line}
                                 </div>
                             )
                         } else {
                             return (
-                                <div>
+                                <div className='align-right'>
                                     {line}
                                 </div>
                             )    

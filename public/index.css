@@ -1,6 +1,14 @@
 h1 {
+    align-content: center;
     font-family: 'Abril Fatface', cursive;
+    font-size: 64px;
     font-style: italic;
+    background-image: url('sein-oval.gif');
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 114px;
+    color: red;
+    text-shadow: 1px 1px black;
 }
 
 #main {

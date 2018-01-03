@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom'
 
 import NavHeader from './NavHeader'
-import QuotesList from './QuotesList'
+import NewPoem from './NewPoem'
 
 import store from '../store'
 import { fetchQuotes } from '../reducers/quotes'
@@ -19,8 +19,8 @@ export default class Root extends Component {
             <main>
                 <NavHeader />
                 <Switch>
-                    <Route exact path="/quotes" component={QuotesList} />
-                    <Redirect to="/quotes" />
+                    <Route exact path="/" component={NewPoem} />
+                    <Redirect to="/" />
                 </Switch>
             </main>
         )

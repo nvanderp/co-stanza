@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-function QuotesList(props) {
+function NewPoem(props) {
     const { quotes, poem } = props
 
     return (
@@ -34,18 +34,6 @@ function QuotesList(props) {
                     })
                 }
             </pre>
-            {/* <h3>Available Quotes</h3>
-            {
-                !quotes
-                ? null
-                : quotes.map(quote => {
-                    return (
-                        <div key={quote.id}>
-                            {quote.content}
-                        </div>
-                    )
-                })
-            } */}
         </div>
     )
 }
@@ -78,10 +66,6 @@ const poemGenerator = (content) => {
     return newPoem
 }
 
-// export const handleSave = (evt) => {
-//     console.log(poem)
-// }
-
 const mapStateToProps = function(state, ownProps) {
     let poem
     if (state.quotes.length) poem = pickPoem(state.quotes)
@@ -91,4 +75,4 @@ const mapStateToProps = function(state, ownProps) {
     }
 }
 
-export default connect(mapStateToProps)(QuotesList)
+export default connect(mapStateToProps)(NewPoem)

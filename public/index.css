@@ -17,7 +17,7 @@ nav {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    margin: 0 -15px;
+    margin: 15px -15px 0 0;
 }
 
 #main {

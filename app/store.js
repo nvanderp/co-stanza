@@ -6,3 +6,4 @@ import thunkMiddleware from 'redux-thunk' // https://github.com/gaearon/redux-th
 export default createStore(rootReducer, applyMiddleware(thunkMiddleware, loggingMiddleware))
 
 export * from './reducers/quotes'
+export * from './reducers/poems'

@@ -11,7 +11,6 @@ router.get('/', (req, res, next) => {
 })
 
 router.post('/', (req, res, next) => {
-    console.log(req.body)
     Poem.create({
         content: req.body.content
     })

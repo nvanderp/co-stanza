@@ -72,6 +72,16 @@ const poemGenerator = (content) => {
     return newPoem
 }
 
+const arrLengthAdj = (poem) => {
+    let longest = poem.reduce((a, b) => { return a.length > b.length ? a : b }).length
+    poem.map(line => {
+        while (line.length <= longest ) {
+            line.push('')
+        }
+    })
+    return poem
+}
+
 const mapStateToProps = (state, ownProps) => {
     let poem
     if (state.quotes.length) poem = pickPoem(state.quotes)
@@ -85,6 +95,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         handleSave(newPoem, evt) {
             if (!newPoem.content[0]) newPoem.content.shift()
+            newPoem.content = arrLengthAdj(newPoem.content)
+            console.log(newPoem)
             dispatch(postPoem(newPoem, ownProps.history))
         }
     }

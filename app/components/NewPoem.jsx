@@ -94,6 +94,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         handleSave(newPoem, evt) {
+            evt.preventDefault();
             if (!newPoem.content[0]) newPoem.content.shift()
             newPoem.content = arrLengthAdj(newPoem.content)
             console.log(newPoem)

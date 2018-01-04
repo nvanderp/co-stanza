@@ -31,7 +31,7 @@ export function postPoem(poem, history) {
             .then(newPoem => {
                 const action = getPoem(newPoem)
                 dispatch(action)
-                // history.push(`/poems/${newPoem.id}`)
+                history.push(`/poems/${newPoem.id}`)
             })
     }
 }

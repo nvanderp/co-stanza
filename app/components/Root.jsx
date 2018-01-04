@@ -19,8 +19,9 @@ export default class Root extends Component {
             <main>
                 <Header />
                 <Switch>
-                    <Route exact path="/" component={NewPoem} />
-                    <Redirect to="/" />
+                    <Route exact path='/' component={NewPoem} />
+                    <Route exact path='/poems/:poemId' component={NewPoem} />
+                    <Redirect to='/' />
                 </Switch>
             </main>
         )

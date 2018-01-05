@@ -59,7 +59,7 @@ const poemGenerator = (content) => {
     let poem = content.split(' ')
     let newPoem = []
     let curIndex = 0
-    let punct = [null, null, null, null, null, null, null, '(', ')', '-']
+    let punct = [null, null, null, null, null, null, null, null, '(', ')', '-']
     poem.map(word => {
         let num = Math.floor(Math.random() * 2)
         let randoPunct = punct[Math.floor(Math.random() * (punct.length + 1))]
@@ -79,9 +79,8 @@ const poemGenerator = (content) => {
         } else {
             curIndex++
             newPoem[curIndex] = []
-            // newPoem[curIndex].push(word)
             if (!randoPunct) newPoem[curIndex].push(word)
-            else if (randoPunct === ')' || randoPunct === '-') newPoem[curIndex].push(word + randoPunct)
+            else if (randoPunct === ')') newPoem[curIndex].push(word + randoPunct)
             else newPoem[curIndex].push(randoPunct + word)
         }
     })

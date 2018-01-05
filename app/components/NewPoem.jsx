@@ -59,16 +59,30 @@ const poemGenerator = (content) => {
     let poem = content.split(' ')
     let newPoem = []
     let curIndex = 0
+    let punct = [null, null, null, null, null, null, null, '(', ')', '-']
     poem.map(word => {
         let num = Math.floor(Math.random() * 2)
+        let randoPunct = punct[Math.floor(Math.random() * (punct.length + 1))]
         if (!num) {
             if (typeof(newPoem[curIndex]) === 'undefined') newPoem[curIndex] = []
-            if (newPoem[curIndex].length >= 1) newPoem[curIndex].push(' ' + word)
-            else newPoem[curIndex].push(word)
+            if (newPoem[curIndex].length >= 1) {
+                if (!randoPunct) newPoem[curIndex].push(' ' + word)
+                else if (randoPunct === '-') newPoem[curIndex].push(randoPunct + word)
+                else if (randoPunct === ')') newPoem[curIndex].push(' ' + word + randoPunct)
+                else newPoem[curIndex].push(' ' + randoPunct + word)
+            }
+            else {  // so far, only word in currArray
+                if (!randoPunct) newPoem[curIndex].push(word)
+                else if (randoPunct === ')' || randoPunct === '-') newPoem[curIndex].push(word + randoPunct)
+                else newPoem[curIndex].push(randoPunct + word)
+            }
         } else {
             curIndex++
             newPoem[curIndex] = []
-            newPoem[curIndex].push(word)
+            // newPoem[curIndex].push(word)
+            if (!randoPunct) newPoem[curIndex].push(word)
+            else if (randoPunct === ')' || randoPunct === '-') newPoem[curIndex].push(word + randoPunct)
+            else newPoem[curIndex].push(randoPunct + word)
         }
     })
     if (!newPoem[0]) newPoem.shift()

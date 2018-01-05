@@ -55,4 +55,4 @@ const mapStateToProps = (state, ownProps) => {
     };
 };
 
-export default connect(mapStateToProps)(SavedPoem);
+export default connect(mapStateToProps)(SavedPoem)

@@ -3,7 +3,8 @@ const DataTypes = db.Sequelize
 
 const Poem = db.define('poem', {
     content: {
-        type: DataTypes.ARRAY(DataTypes.ARRAY(DataTypes.STRING())),
+        // type: DataTypes.ARRAY(DataTypes.ARRAY(DataTypes.JSON())),
+        type: DataTypes.JSON(),
         allowNull: false
     }
 })

@@ -76,7 +76,7 @@ const arrLengthAdj = (poem) => {
     let longest = poem.reduce((a, b) => { return a.length > b.length ? a : b }).length
     poem.map(line => {
         while (line.length <= longest ) {
-            line.push('')
+            line.push('delete me')
         }
     })
     return poem
@@ -96,8 +96,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         handleSave(newPoem, evt) {
             evt.preventDefault();
             if (!newPoem.content[0]) newPoem.content.shift()
-            newPoem.content = arrLengthAdj(newPoem.content)
-            console.log(newPoem)
             dispatch(postPoem(newPoem, ownProps.history))
         }
     }

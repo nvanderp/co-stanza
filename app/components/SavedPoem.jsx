@@ -3,7 +3,10 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 function SavedPoem(props) {
-    const { poem } = props
+    let { poem } = props
+    // console.log("Here's what I'm getting from the db", typeof(poem.content))
+    // console.log(JSON.parse(poem.content))
+    if (poem) poem.content = JSON.parse(poem.content)
 
     return (
         <div className='poem-container'>
@@ -11,9 +14,9 @@ function SavedPoem(props) {
                 <Link to='/quotes'><button className='bttn'>Generate Poem</button></Link>
             </nav>
             <pre className='poem'>
-                { 
-                    !poem 
-                    ? 'Loading poem...' 
+                {
+                    !poem
+                    ? 'Loading poem...'
                     : poem.content.map(line => {
                         if (line.length === 1 || line.length === 4) {
                             return (
@@ -42,12 +45,10 @@ function SavedPoem(props) {
     )
 }
 
-const mapStateToProps = function(state, ownProps) {
+const mapStateToProps = (state, ownProps) => {
     const poemId = Number(ownProps.match.params.poemId);
-
-    // requires a poem unpacker of sorts!
-
     return {
+        poems: state.poems,
         poem: state.poems.find(poem => poem.id === poemId)
     };
 };

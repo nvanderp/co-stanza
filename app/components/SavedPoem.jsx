@@ -6,12 +6,13 @@ function SavedPoem(props) {
     let { poem } = props
     // console.log("Here's what I'm getting from the db", typeof(poem.content))
     // console.log(JSON.parse(poem.content))
-    if (poem) poem.content = JSON.parse(poem.content)
+    if (poem && typeof(poem.content) === 'string' ) poem.content = JSON.parse(poem.content)
 
     return (
         <div className='poem-container'>
             <nav>
-                <Link to='/quotes'><button className='bttn'>Generate Poem</button></Link>
+                <Link to='/new-poem'><button className='bttn'>Generate Poem</button></Link>
+                <Link to='/poems'><button className='bttn'>List of Poems</button></Link>
             </nav>
             <pre className='poem'>
                 {

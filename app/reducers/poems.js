@@ -43,6 +43,7 @@ export default function reducer(state = [], action) {
             return newState.concat(action.poem)
         case GET_POEMS:
             return action.poems
-        default: return state
+        default: 
+            return state
     }
 }

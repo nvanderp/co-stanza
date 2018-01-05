@@ -3,6 +3,7 @@ import { Route, Switch, Redirect } from 'react-router-dom'
 
 import Header from './Header'
 import NewPoem from './NewPoem'
+import Poems from './Poems'
 import SavedPoem from './SavedPoem'
 
 import store from '../store'
@@ -23,9 +24,10 @@ export default class Root extends Component {
             <main>
                 <Header />
                 <Switch>
-                    <Route exact path='/' component={NewPoem} />
+                    <Route exact path='/new-poem' component={NewPoem} />
+                    <Route exact path='/poems' component={Poems} />
                     <Route exact path='/poems/:poemId' component={SavedPoem} />
-                    <Redirect to='/' />
+                    <Redirect to='/new-poem' />
                 </Switch>
             </main>
         )

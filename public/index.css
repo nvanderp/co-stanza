@@ -20,6 +20,11 @@ nav {
     margin: 15px -15px 0 0;
 }
 
+ul {
+    list-style-type: none;
+    padding-left: 0px;
+}
+
 #main {
     text-align: center;
     font-family: 'Abril Fatface', cursive;
@@ -33,7 +38,7 @@ nav {
     font-style: italic;
     font-weight: bold;
     text-shadow: .5px .5px black;
-    margin: 0 15px;
+    margin: 6px;
     border: none;
     background-image: url('sein-oval.gif');
     background-size: auto;
@@ -49,9 +54,8 @@ nav {
 }
 
 .poem {
-    width: 50%;
-    margin: 30px auto;
-    /* box-shadow: 4px 4px 9px 1.5px; */
+    width: 90%;
+    margin: auto;
     padding: 15px;
 }
 

@@ -9,7 +9,8 @@ function NewPoem(props) {
     return (
         <div className='poem-container'>
             <nav>
-                <Link to='/quotes'><button className='bttn'>Generate Poem</button></Link>
+                <Link to='/new-poem'><button className='bttn'>Generate Poem</button></Link>
+                <Link to='/poems'><button className='bttn'>List of Poems</button></Link>
                 <button onClick={evt => handleSave(poem, evt)} className='bttn'>Save Poem</button>
             </nav>
             <pre className='poem'>

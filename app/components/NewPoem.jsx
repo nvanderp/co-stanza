@@ -13,10 +13,11 @@ function NewPoem(props) {
                 <Link to='/poems'><button className='bttn'>List of Poems</button></Link>
                 <button onClick={evt => handleSave(poem, evt)} className='bttn'>Save Poem</button>
             </nav>
+            <h3>{!poem ? '...' : poem.content[0].join(' ')}</h3>
             <pre className='poem'>
                 { 
                     !poem 
-                    ? 'Loading poem...' 
+                    ? 'Loading poem...'
                     : poem.content.map(line => {
                         if (line.length === 1 || line.length === 4) {
                             return (
@@ -70,17 +71,8 @@ const poemGenerator = (content) => {
             newPoem[curIndex].push(word)
         }
     })
+    if (!newPoem[0]) newPoem.shift()
     return newPoem
-}
-
-const arrLengthAdj = (poem) => {
-    let longest = poem.reduce((a, b) => { return a.length > b.length ? a : b }).length
-    poem.map(line => {
-        while (line.length <= longest ) {
-            line.push('delete me')
-        }
-    })
-    return poem
 }
 
 const mapStateToProps = (state, ownProps) => {
@@ -96,7 +88,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         handleSave(newPoem, evt) {
             evt.preventDefault();
-            if (!newPoem.content[0]) newPoem.content.shift()
             dispatch(postPoem(newPoem, ownProps.history))
         }
     }

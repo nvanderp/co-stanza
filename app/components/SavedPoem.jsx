@@ -14,6 +14,7 @@ function SavedPoem(props) {
                 <Link to='/new-poem'><button className='bttn'>Generate Poem</button></Link>
                 <Link to='/poems'><button className='bttn'>List of Poems</button></Link>
             </nav>
+            <h3>{!poem ? '...' : poem.content[0].join(' ')}</h3>
             <pre className='poem'>
                 {
                     !poem

@@ -41,7 +41,6 @@ ul {
     margin: 6px;
     border: none;
     background-image: url('sein-oval.gif');
-    background-size: auto;
     background-repeat: no-repeat;
     background-position: center;
     background-size: 125px;
@@ -49,7 +48,29 @@ ul {
     height: 55px;
 }
 
+.bttn-sav-delete {
+    font-size: 10px;
+    color: red;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-style: italic;
+    font-weight: bold;
+    text-shadow: .5px .5px black;
+    margin: 6px;
+    border: none;
+    background-image: url('sein-oval.gif');
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 62.5px;
+    height: 27.5px;
+    background-size: 62.5px;
+}
+
 .bttn:hover {
+    color: white;
+}
+
+.bttn-sav-delete:hover {
     color: white;
 }
 

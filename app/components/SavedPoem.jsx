@@ -2,8 +2,10 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
+import { deletePoem } from '../store'
+
 function SavedPoem(props) {
-    let { poem } = props
+    let { poem, handleDelete } = props
     // console.log("Here's what I'm getting from the db", typeof(poem.content))
     // console.log(JSON.parse(poem.content))
     if (poem && typeof(poem.content) === 'string' ) poem.content = JSON.parse(poem.content)
@@ -14,7 +16,10 @@ function SavedPoem(props) {
                 <Link to='/new-poem'><button className='bttn'>Generate Poem</button></Link>
                 <Link to='/poems'><button className='bttn'>List of Poems</button></Link>
             </nav>
-            <h3>{!poem ? '...' : poem.content[0].join(' ')}</h3>
+            <h3>
+                {!poem ? '...' : poem.content[0].join(' ')}
+                <button onClick={ evt => handleDelete(poem, evt) } className='bttn-sav-delete'>Delete</button>
+            </h3>
             <pre className='poem'>
                 {
                     !poem
@@ -48,11 +53,19 @@ function SavedPoem(props) {
 }
 
 const mapStateToProps = (state, ownProps) => {
-    const poemId = Number(ownProps.match.params.poemId);
+    const poemId = Number(ownProps.match.params.poemId)
     return {
         poems: state.poems,
         poem: state.poems.find(poem => poem.id === poemId)
-    };
-};
+    }
+}
 
-export default connect(mapStateToProps)(SavedPoem)
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return {
+        handleDelete(poem, evt) {
+            dispatch(deletePoem(poem, ownProps.history))
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SavedPoem)

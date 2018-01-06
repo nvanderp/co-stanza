@@ -11,9 +11,11 @@ function NewPoem(props) {
             <nav>
                 <Link to='/new-poem'><button className='bttn'>Generate Poem</button></Link>
                 <Link to='/poems'><button className='bttn'>List of Poems</button></Link>
-                <button onClick={evt => handleSave(poem, evt)} className='bttn'>Save Poem</button>
             </nav>
-            <h3>{!poem ? '...' : poem.content[0].join(' ')}</h3>
+            <h3>
+                {!poem ? '...' : poem.content[0].join(' ')}
+                <button onClick={evt => handleSave(poem, evt)} className='bttn-sav-delete'>Save</button>
+            </h3>
             <pre className='poem'>
                 { 
                     !poem 

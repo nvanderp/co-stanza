@@ -24,6 +24,14 @@ router.get('/:poemId', (req, res, next) => {
         .catch(next)
 })
 
-
+router.delete('/:poemId', (req, res, next) => {
+    Poem.destroy({
+        where: {
+            id: req.params.poemId
+        }
+    })
+        .then(() => res.status(204).end())
+        .catch(next)
+})
 
 module.exports = router
